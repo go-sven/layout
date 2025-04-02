@@ -1,0 +1,10 @@
+web:
+  mode: debug
+  addr: :80
+  default: true
+database:
+  connection: user:password@tcp(host:port)/database
+redis:
+  host: redis-host:6379
+  password: redispw
+  db: 15
