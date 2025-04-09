@@ -2,7 +2,7 @@ package sven
 
 import (
 	"context"
-	"github.com/gin-gonic/gin"
+	"github.com/go-sven/layout/internal/base/conf"
 	"net/http"
 	"time"
 )
@@ -16,10 +16,11 @@ type Server struct {
 	httpServer *http.Server
 }
 
-func NewServer(engine *gin.Engine, addr string) *Server {
+func NewServer(web *conf.Web) *Server {
+	engine := newEngine(web)
 	return &Server{
 		httpServer: &http.Server{
-			Addr:    addr,
+			Addr:    web.Addr,
 			Handler: engine,
 		}}
 }
